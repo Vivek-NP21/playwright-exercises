@@ -15,9 +15,13 @@ with sync_playwright() as p:
     print("Number of products:", product_count)
     assert product_count > 0, \
         "No products are available"
-    first_product = products.first
-    expect(first_product).to_be_visible()
-    first_product.click()
+    for i in range (product_count):
+        product= products.nth(i)
+        if product.locator('[data-test="out-of-stock"]').count() < 0:
+            continue
+    
+    expect(product).to_be_visible()
+    product.click()
     page.wait_for_timeout(2000)
     print("Product selected")
 
@@ -67,24 +71,12 @@ with sync_playwright() as p:
     print("Price verified:",product_price_text)
 
 
-    cart_row = page.locator(
-        "tr"
-    ).filter(
-        has_text=product_name_text
-    )
-
+    cart_row = page.locator("tr").filter(has_text=product_name_text)
     expect(cart_row).to_be_visible()
-
-    remove_button = cart_row.locator(
-        "a.btn.btn-danger"
-    )
-
+    remove_button = cart_row.locator("a.btn.btn-danger")
     expect(remove_button).to_be_visible()
-
     remove_button.click()
-
     page.wait_for_timeout(3000)
-
     print("Remove button clicked")
 
 

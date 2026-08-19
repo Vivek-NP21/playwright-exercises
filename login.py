@@ -15,7 +15,7 @@ with sync_playwright() as p:
     print("Application opened")
 
 
-    sign_in = page.get_by_role("link",name="Sign in"    )
+    sign_in = page.locator('a[href="/auth/login"]')
 
     expect(sign_in).to_be_visible()
 
@@ -39,8 +39,8 @@ with sync_playwright() as p:
 
     print("\n--- TEST 1: VALID CREDENTIALS ---")
 
-    email.fill("YOUR_REAL_REGISTERED_EMAIL")
-    password.fill("YOUR_REAL_PASSWORD")
+    email.fill("vivek.np@matodata.com")
+    password.fill("Viveknp@2108")
 
     login_button = page.get_by_role(
         "button",
