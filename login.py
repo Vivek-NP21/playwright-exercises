@@ -39,9 +39,8 @@ with sync_playwright() as p:
 
     print("\n--- TEST 1: VALID CREDENTIALS ---")
 
-    email.fill("vnpviveknp@gmail.com")
-
-    password.fill("Vivek@1qwert")
+    email.fill("YOUR_REAL_REGISTERED_EMAIL")
+    password.fill("YOUR_REAL_PASSWORD")
 
     login_button = page.get_by_role(
         "button",
@@ -188,6 +187,8 @@ with sync_playwright() as p:
 
     print("Validation messages displayed")
     print("EMPTY CREDENTIALS TEST PASSED")
+
+
 
 
 

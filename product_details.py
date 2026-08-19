@@ -46,9 +46,7 @@ with sync_playwright() as p:
     print("Product image verified")
 
 
-
-
-    description = page.locator("p").filter(has_text="Versatile").first
+    description = page.locator("p").filter(has_text="combination pliers").first
     expect(description).to_be_visible()
     description_text = description.inner_text()
     print("Product description:")

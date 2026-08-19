@@ -17,9 +17,7 @@ with sync_playwright() as p:
     print("Application loaded successfully")
 
 
-    expect(page).to_have_title(
-        "Practice Software Testing - Toolshop - v5.0"
-    )
+    expect(page).to_have_title("Practice Software Testing - Toolshop - v5.0")
     print("Page title verified")
 
 
@@ -28,9 +26,7 @@ with sync_playwright() as p:
     print("Main navigation is visible")
 
 
-    products = page.locator(
-        "a[href^='/product/']"
-    )
+    products = page.locator("a[href^='/product/']")
     product_count = products.count()
     print("Number of products:", product_count)
     assert product_count > 0, \
@@ -45,8 +41,6 @@ with sync_playwright() as p:
     assert "/product/" in page.url, \
         "Product page did not open"
     print("Product selected successfully")
-
-    print("HOME PAGE TEST PASSED")
 
     page.wait_for_timeout(5000)
 

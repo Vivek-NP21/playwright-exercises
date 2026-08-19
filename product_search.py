@@ -42,6 +42,8 @@ with sync_playwright() as p:
     print("VALID SEARCH TEST PASSED")
 
 
+
+
     page.goto(BASE_URL)
     page.wait_for_timeout(2000)
     search_box = page.get_by_role("textbox",name="Search")

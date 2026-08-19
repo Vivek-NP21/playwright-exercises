@@ -15,7 +15,7 @@ with sync_playwright() as p:
     print("Number of products:", product_count)
     assert product_count > 0, \
         "No products are available"
-    first_product = products.nth(1) 
+    first_product = products.first
     expect(first_product).to_be_visible()
     first_product.click()
     page.wait_for_timeout(2000)
