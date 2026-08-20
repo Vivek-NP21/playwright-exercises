@@ -17,12 +17,12 @@ with sync_playwright() as p:
         "No products are available"
     for i in range (product_count):
         product= products.nth(i)
-        if product.locator('[data-test="out-of-stock"]').count() < 0:
+        if product.locator('[data-test="out-of-stock"]').count() > 0:
             continue
-    
-    expect(product).to_be_visible()
-    product.click()
-    page.wait_for_timeout(2000)
+        expect(product).to_be_visible()
+        product.click()
+        page.wait_for_timeout(2000)
+        break
     print("Product selected")
 
 
