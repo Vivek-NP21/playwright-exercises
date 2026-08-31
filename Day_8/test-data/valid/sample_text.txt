@@ -1,0 +1,587 @@
+1. What is JavaScript?
+
+JavaScript is a high-level, interpreted programming language used to create interactive web pages. It is used for frontend, backend (Node.js), mobile, and desktop application development.
+
+------------------------------------------------------------------------------------------------
+
+2. What are the data types in JavaScript?
+
+	Primitive Data Types
+	
+		String
+		Number
+		Boolean
+		Undefined
+		Null
+		Symbol
+		BigInt
+		Non-Primitive
+		Object
+		Array
+		Function
+
+Example:
+
+	let name = "John";
+	let age = 25;
+	let isStudent = true;
+	let person = {name:"John"};
+
+------------------------------------------------------------------------------------------------
+
+3. Difference between var, let, and const
+
+ var							let						const
+ Function scope				Block scope				Block scope
+ Can redeclare				Cannot redeclare		Cannot redeclare
+ Can reassign				Can reassign			Cannot reassign
+ Hoisted with undefined		Hoisted but TDZ			Hoisted but TDZ
+
+Example:
+
+	var a = 10;
+	let b = 20;
+	const c = 30;
+	
+------------------------------------------------------------------------------------------------
+	
+4. What is Hoisting?
+
+Hoisting is JavaScript's behavior of moving declarations to the top before execution.
+
+Example:
+
+	console.log(a);
+	var a = 10;
+
+Output:
+
+	undefined
+	
+------------------------------------------------------------------------------------------------
+
+5. What is Closure?
+
+A closure is a function that remembers variables from its outer scope even after the outer function has finished executing.
+
+Example:
+
+	function outer(){
+		let count = 0;
+
+		return function(){
+			count++;
+			console.log(count);
+		}
+	}
+
+	let counter = outer();
+
+	counter();
+	counter();
+
+Output:
+
+	1
+	2
+	
+------------------------------------------------------------------------------------------------
+
+6. What is Scope?
+
+Scope determines where variables are accessible.
+
+Types:
+
+	Global Scope
+	Function Scope
+	Block Scope
+	
+------------------------------------------------------------------------------------------------
+
+7. Difference between == and ===
+
+==
+
+	Compares values only
+	Performs type conversion
+
+===
+
+	Compares value and datatype
+
+Example:
+
+	5 == "5"    // true
+	5 === "5"   // false
+
+------------------------------------------------------------------------------------------------
+
+8. What is a Callback Function?
+
+A callback is a function passed as an argument to another function.
+
+Example:
+
+	function greet(name, callback){
+		console.log("Hello " + name);
+		callback();
+	}
+
+	greet("John", function(){
+		console.log("Welcome!");
+	});
+
+------------------------------------------------------------------------------------------------
+
+9. What are Promises?
+
+A Promise represents the eventual completion or failure of an asynchronous operation.
+
+States:
+
+	Pending
+	Fulfilled
+	Rejected
+
+Example:
+
+	let promise = new Promise((resolve,reject)=>{
+		resolve("Success");
+	});
+
+------------------------------------------------------------------------------------------------
+
+10. What is async/await?
+
+Used to write asynchronous code in a synchronous style.
+
+Example:
+
+	async function getData(){
+		let response = await fetch(url);
+	}
+
+------------------------------------------------------------------------------------------------
+
+11. What is the Event Loop?
+
+The Event Loop allows JavaScript to perform asynchronous operations despite being single-threaded.
+
+It executes:
+
+	Call Stack
+	Web APIs
+	Callback Queue
+
+------------------------------------------------------------------------------------------------
+
+12. What is DOM?
+
+DOM (Document Object Model) represents HTML as objects.
+
+Example:
+
+	document.getElementById("demo");
+
+------------------------------------------------------------------------------------------------
+
+13. What is Event Bubbling?
+
+Events travel from child element to parent.
+
+Example:
+
+	Button
+	 ↓
+	Div
+	 ↓
+	Body
+
+------------------------------------------------------------------------------------------------
+
+14. What is Event Capturing?
+
+Events travel from parent to child.
+
+------------------------------------------------------------------------------------------------
+
+15. What is Event Delegation?
+
+Using one parent event listener to manage child elements.
+
+Example:
+
+parent.addEventListener("click", function(e){
+    if(e.target.tagName==="BUTTON"){
+        console.log("Clicked");
+    }
+});
+
+------------------------------------------------------------------------------------------------
+
+16. What is a Higher-Order Function?
+
+A function that takes another function as an argument or returns one.
+
+Examples:
+
+	map()
+	filter()
+	reduce()
+
+------------------------------------------------------------------------------------------------
+
+17. What is a Pure Function?
+
+A function that:
+
+Always returns same output
+Has no side effects
+
+Example:
+
+function add(a,b){
+    return a+b;
+}
+
+------------------------------------------------------------------------------------------------
+
+18. What is Recursion?
+
+A function calling itself.
+
+Example:
+
+function fact(n){
+    if(n==1) return 1;
+    return n*fact(n-1);
+}
+
+------------------------------------------------------------------------------------------------
+
+19. What is Spread Operator (...)?
+
+Copies or expands arrays/objects.
+
+Example:
+
+let arr=[1,2];
+let newArr=[...arr,3];
+
+------------------------------------------------------------------------------------------------
+
+20. What is Rest Parameter (...)?
+
+Collects multiple arguments into one array.
+
+function sum(...nums){
+    return nums.reduce((a,b)=>a+b);
+}
+
+------------------------------------------------------------------------------------------------
+
+21. What are Template Literals?
+
+Use backticks.
+
+Example:
+
+let name="John";
+console.log(`Hello ${name}`);
+
+------------------------------------------------------------------------------------------------
+
+22. What is Destructuring?
+
+Extract values from arrays or objects.
+
+let {name,age}=person;
+
+------------------------------------------------------------------------------------------------
+
+23. What is JSON?
+
+JSON (JavaScript Object Notation) is a lightweight data format used to exchange data.
+
+------------------------------------------------------------------------------------------------
+
+24. What is JSON.parse()?
+
+Converts JSON string into JavaScript object.
+
+JSON.parse(jsonData);
+
+------------------------------------------------------------------------------------------------
+
+25. What is JSON.stringify()?
+
+Converts JavaScript object into JSON string.
+
+JSON.stringify(obj);
+
+------------------------------------------------------------------------------------------------
+
+26. What is localStorage?
+
+Stores data permanently until manually cleared.
+
+Capacity:
+Around 5–10 MB.
+
+------------------------------------------------------------------------------------------------
+
+27. What is sessionStorage?
+
+Stores data only until the browser tab is closed.
+
+------------------------------------------------------------------------------------------------
+
+28. What is NaN?
+
+NaN means "Not a Number".
+
+Example:
+
+Number("Hello");
+
+Output:
+
+NaN
+
+------------------------------------------------------------------------------------------------
+
+29. What is undefined?
+
+A variable declared but not assigned.
+
+let x;
+console.log(x);
+
+Output:
+
+undefined
+
+------------------------------------------------------------------------------------------------
+
+30. What is null?
+
+Represents an intentional empty value.
+
+let data=null;
+
+------------------------------------------------------------------------------------------------
+
+31. What is the this keyword?
+
+Refers to the object calling the function.
+
+Example:
+
+const person={
+    name:"John",
+    greet(){
+        console.log(this.name);
+    }
+}
+
+------------------------------------------------------------------------------------------------
+
+32. What are Arrow Functions?
+
+Short syntax for writing functions.
+
+const add=(a,b)=>a+b;
+
+------------------------------------------------------------------------------------------------
+
+33. What is Function Currying?
+
+Transforming a function with multiple arguments into nested functions with one argument each.
+
+function add(a){
+    return function(b){
+        return a+b;
+    }
+}
+
+------------------------------------------------------------------------------------------------
+
+34. What is Prototype?
+
+Every JavaScript object has a prototype from which it inherits properties and methods.
+
+------------------------------------------------------------------------------------------------
+
+35. What is Prototypal Inheritance?
+
+Objects inherit properties from another object using prototypes.
+
+------------------------------------------------------------------------------------------------
+
+36. Difference between Synchronous and Asynchronous Code
+
+Synchronous
+
+Executes one line at a time.
+Blocks the next statement until the current one finishes.
+
+Asynchronous
+
+Does not block execution.
+Uses callbacks, promises, or async/await.
+
+------------------------------------------------------------------------------------------------
+
+37. What is a Generator Function?
+
+A function that can pause and resume execution using yield.
+
+function* gen(){
+    yield 1;
+    yield 2;
+}
+
+------------------------------------------------------------------------------------------------
+
+38. What are Modules in JavaScript?
+
+Modules help organize code into separate reusable files.
+
+export default add;
+
+import add from "./app.js";
+
+------------------------------------------------------------------------------------------------
+
+39. What is Debounce?
+
+Debounce delays function execution until the user stops triggering the event.
+
+Use Cases:
+
+Search box
+Auto-save
+Resize event
+
+------------------------------------------------------------------------------------------------
+
+40. What is Throttle?
+
+Throttle limits how often a function executes.
+
+Use Cases:
+
+Scroll events
+Mouse movement
+Window resize
+
+------------------------------------------------------------------------------------------------
+
+41. What is Memoization?
+
+Stores previous function results to avoid repeated calculations.
+
+memo(5);
+memo(5);
+
+Second call returns the cached result.
+
+------------------------------------------------------------------------------------------------
+
+42. Difference between call(), apply(), and bind()
+call()										apply()							bind()
+Executes immediately					Executes immediately			Returns a new function
+Arguments separately					Arguments as array					Arguments separately
+
+------------------------------------------------------------------------------------------------
+
+43. What are IIFEs?
+
+Immediately Invoked Function Expressions execute as soon as they are defined.
+
+(function(){
+    console.log("Hello");
+})();
+
+------------------------------------------------------------------------------------------------
+
+44. What is Strict Mode?
+
+Enables stricter error checking.
+
+"use strict";
+
+Benefits:
+
+Prevents accidental globals
+Throws more errors
+Improves code quality
+
+------------------------------------------------------------------------------------------------
+
+45. What is Optional Chaining?
+
+Safely accesses nested object properties.
+
+user?.address?.city
+
+Returns undefined instead of throwing an error if a property is missing.
+
+------------------------------------------------------------------------------------------------
+
+46. What is the Nullish Coalescing Operator (??)?
+
+Returns the right-hand value only when the left-hand value is null or undefined.
+
+let name = null;
+console.log(name ?? "Guest");
+
+Output:
+
+Guest
+
+------------------------------------------------------------------------------------------------
+
+47. What is a Map Object?
+
+Map stores key-value pairs and allows keys of any data type.
+
+let map = new Map();
+map.set("name", "John");
+console.log(map.get("name"));
+
+------------------------------------------------------------------------------------------------
+
+48. What is a Set Object?
+
+Set stores unique values only.
+
+let set = new Set([1, 2, 2, 3]);
+console.log(set);
+
+Output:
+
+Set {1,2,3}
+
+------------------------------------------------------------------------------------------------
+
+49. What is Garbage Collection?
+
+Garbage collection is JavaScript's automatic memory management process that removes objects no longer reachable by the program, helping prevent memory leaks.
+
+------------------------------------------------------------------------------------------------
+
+50. What are JavaScript Frameworks and Libraries?
+
+Library: Provides reusable functions; you control the application flow.
+
+jQuery
+React
+
+Framework: Provides a complete structure and controls the application flow.
+
+Angular
+Vue.js
+Next.js
+Svelte
