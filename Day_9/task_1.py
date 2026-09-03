@@ -1,4 +1,4 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright,expect
 
 def test_strict_mode_locator():
 
@@ -72,10 +72,7 @@ def test_strict_mode_locator():
         print("Cart opened")
 
         cart_product = page.get_by_text(product_name,exact=False)
-        expect_count = cart_product.count()
-        print("Matching product entries in cart:",expect_count)
-
-        assert expect_count > 0, ("Product was not found in cart")
+        expect(cart_product).to_be_visible()
 
         print("Product successfully verified in cart:")
         print(product_name)
