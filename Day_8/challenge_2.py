@@ -124,7 +124,7 @@ async def main():
         await page.go_forward()
         print("Went forward to second product")
         await expect(page).to_have_url(re.compile(r"https://practicesoftwaretesting\.com/contact"))
-        await expect(page.locator("h1")).to_have_text( second_product_name, timeout=15000)
+        await expect(page.locator("h1")).to_have_text( second_product_name)
         second_product_after_forward = await page.locator("h1").inner_text()
         print("Product after forward:",second_product_after_forward)
         print("Second product restored after forward")
