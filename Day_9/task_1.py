@@ -68,10 +68,7 @@ def test_strict_mode_locator():
         fixed_locator.click()
         print("Product added to cart")
 
-        cart = page.locator("#nav-cart")
-        cart.wait_for(state="visible")
-        cart.click()
-        page.wait_for_load_state("domcontentloaded")
+        cart = page.locator("#nav-cart").click()
         print("Cart opened")
 
         cart_product = page.get_by_text(product_name,exact=False)
